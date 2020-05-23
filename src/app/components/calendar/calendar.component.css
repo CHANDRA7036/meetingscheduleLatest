@@ -1,0 +1,14 @@
+.mainContainer {
+    border: 1px solid black;
+    background-color: white;
+    width: 65%;
+    height: 60%;
+    align-items: center;
+    margin-top: 10%;
+    margin-left: 25%;
+}
+
+div.slots {
+    min-height: 100%;
+    overflow: auto;
+}

@@ -1,0 +1,108 @@
+<form class="form" (ngSubmit)="onSubmit()">
+    <input type="text" name="title" placeholder="Add Todo..." [(ngModel)]="title" [disabled]="true" />
+    <!-- <input type="text" name="title" nz-input placeholder="Add-Todo..." [(ngModel)]="title" [disabled]="true" /> -->
+    <button nz-button nzType="primary">Submit</button>
+</form>
+
+
+<!-- <div class="mainContainer" style="width: 1000px;">
+    <div style="float: left; width: 500px">
+        <div>
+            <nz-card style="width:300px;">
+                <div (click)="onClickMeetingDiv()">
+                    <h2>30 Minute Meeting </h2>
+                    <i nz-icon nzType="caret-right" nzTheme="outline"></i>
+                </div>
+            </nz-card>
+        </div>
+        <div *ngIf="isDisplay">
+            <nz-alert nzMessage="Selected Date: {{ selectedValue | date: 'fullDate' }}"></nz-alert>
+        </div>
+    </div>
+
+
+    <div style="float: left; width: 500px;">
+        <div *ngIf="!isShow &&  !isFormDisplay" style="float: left; width: 300px;">
+            <div>
+                <h2 class="spotpicker-title">Select a Date &amp; Time</h2>
+            </div>
+
+            <div [ngStyle]="{ width: '300px', border: '1px solid #d9d9d9', borderRadius: '4px' }">
+
+                <nz-calendar (click)="onClickCalendar()" [(ngModel)]="selectedValue" [nzFullscreen]="false"></nz-calendar>
+            </div>
+        </div>
+
+        <div *ngIf="isDisplay && !isFormDisplay" style="float: left; width: 200px;">
+            <p>Buttons:</p>
+            <p *ngFor="let ButtonSlots of timeSlots.slotButtons">
+
+                <nz-button-group>
+                    <button nz-button (click)="onClickSlot()" *ngIf="!isSlotDisplay" value="{{ButtonSlots}}">{{ButtonSlots}}</button>
+                    <div *ngIf="isSlotDisplay">
+                        <button nz-button>{{ButtonSlots}}</button>
+                    </div>
+                </nz-button-group>
+            </p>
+
+            <div *ngIf="isSlotDisplay">
+                <button nz-button nzType="primary" (click)="confirmClick()">Confirm</button>
+            </div>
+        </div>
+
+
+        <div *ngIf="isFormDisplay">
+            <h2>Enter Details</h2>
+            <form>
+                <div class="container">
+                    <div class="inputMargin">
+                        <label for="uname"><b>Name*</b></label>
+                        <input type="text" placeholder="Enter Username" name="name" required>
+                    </div>
+                    <div class="inputMargin">
+                        <label for="email"><b>Email*</b></label>
+                        <input type="email" placeholder="Enter Email" name="email" required>
+                    </div>
+                    <div class="inputMargin">
+                        <button type="button" (click)="guestEmailsClick()">Add Guests</button>
+                        <div *ngIf="isGuestEmailsDisplay">
+                            <label class="inputMargin">
+                               <p>Guest Email(s)</p>
+                            </label>
+                            <div> <input type="email" class="inputMargin">
+                            </div>
+                            <small>Notify up to 10 additional guests of the scheduled event</small>
+                        </div>
+                    </div>
+                    <div class="inputMargin">
+                        <button type="submit">Schedule Event</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <br style="clear: left;" />
+</div> -->
+
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <title>Center alignment of inside div</title>
+
+    <body>
+        <h1>GeeksforGeeks</h1>
+        <h2>Center alignment of inside div</h2>
+        <div style="background-color:#4dff4d;width:20%;text-align:center;padding:7px;">
+            <div style="background-color:#33cc33;width:50%;text-align:center;padding:2px;margin:10px auto">
+                <h3 style="font-size:2vw;">Example of div inside a div.</h3>
+                <p style="font-size:2vw;">It has background color = #33cc33.</p>
+                <p style="font-size:2vw;">This is some text in a div element.</p>
+            </div>
+        </div>
+    </body> -->
+
+<!-- <div class="mainContainer">
+    centered content
+</div> -->
