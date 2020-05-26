@@ -1,8 +1,8 @@
 <nz-button-group>
-    <button nz-button (click)="onClickSlot()" *ngIf="!isSlotSelected">{{timeSlots}}</button>
-    <div *ngIf="isSlotSelected">
+    <button nz-button (click)="onClickSlot()" *ngIf="!isSlotActive">{{timeSlots}}</button>
+    <div *ngIf="isSlotActive">
         <button nz-button>{{timeSlots}}</button>
         <!-- <button nz-button nzType="primary" (click)="confirmClick()">Confirm</button> -->
-        <button nz-button nzType="primary">Confirm</button>
+        <button nz-button nzType="primary" (click)='onClickConfirmButton()' (click)='dateSlotSelected()'>Confirm</button>
     </div>
 </nz-button-group>

@@ -5,57 +5,59 @@
         </h2>
         <div *ngIf="isDisplay" style="top: 25%;position: relative;left: 10%;">
             <p> Selected Date: {{ selectedValue | date: 'fullDate' }}</p>
+            <p>{{meetingDuration}}</p>
         </div>
     </div>
 
     <div style="width: 60%;float:left; height: 100%">
-        <div *ngIf="!isFormDisplay" style="float: left;width: 60%">
+        <!-- <div *ngIf="!isDetailsFormdisplay"> -->
+        <div *ngIf="!isDetailsFormdisplay" style="float: left;width: 60%">
             <div>
                 <h2 class="spotpicker-title">Select a Date &amp; Time</h2>
             </div>
-            <div [ngStyle]="{ border: '1px solid #d9d9d9', borderRadius: '4px' }">
+            <div [ngStyle]="{ border: '1px solid #d9d9d9', borderRadius: '4px'}">
                 <!-- <div [ngStyle]="{ width: '350px', border: '1px solid #d9d9d9', borderRadius: '4px' }"> -->
                 <nz-calendar (click)="onClickCalendar()" [(ngModel)]="selectedValue" [nzFullscreen]="false"></nz-calendar>
             </div>
         </div>
 
-        <div *ngIf="isDisplay && !isFormDisplay" style="float: right;width: 30%; height: 100%;" class="slots">
+        <div *ngIf="isDisplay && !isDetailsFormdisplay" style="float: right;width: 30%; height: 100%;" class="slots">
             <br><br>
-            <app-slots *ngFor="let ButtonSlots of timeSlots.slotButtons; let i=index" [timeSlots]='timeSlots.slotButtons[i]'>
+            <app-slots *ngFor="let ButtonSlots of timeSlots.slotButtons; let i=index" [timeSlots]='timeSlots.slotButtons[i].slotTime' [isSlotActive]=timeSlots.slotButtons[i].isActive [allISActives]='timeSlots.slotButtons' (selectedTime)='calculateTime($event)' (formDisplayToggle)='onClickConfirmButtonInCalendar($event)'>
+
                 <!-- <app-slots *ngFor="let ButtonSlots of timeSlots.slotButtons; let i=index" [timeSlots]='timeSlots.slotButtons[i]' [isSlotSelected]=timeSlots.confirmBtnDisplay[i] (isConfirmClicked)='checkFormDispaylayed($event)'> -->
             </app-slots>
         </div>
-
-    </div>
-
-    <div *ngIf="isFormDisplay">
-        <h2>Enter Details</h2>
-        <form>
-            <div class="container">
-                <div class="inputMargin">
-                    <label for="uname"><b>Name*</b></label>
-                    <input type="text" placeholder="Enter Username" name="name" required>
-                </div>
-                <div class="inputMargin">
-                    <label for="email"><b>Email*</b></label>
-                    <input type="email" placeholder="Enter Email" name="email" required>
-                </div>
-                <div class="inputMargin">
-                    <button type="button" (click)="guestEmailsClick()">Add Guests</button>
-                    <div *ngIf="isGuestEmailsDisplay">
-                        <label class="inputMargin">
-                           <p>Guest Email(s)</p>
-                        </label>
-                        <div> <input type="email" class="inputMargin">
+        <!-- </div> -->
+        <div *ngIf="isDetailsFormdisplay">
+            <h2>Enter Details</h2>
+            <form>
+                <div class="container">
+                    <div class="inputMargin">
+                        <label for="uname"><b>Name*</b></label>
+                        <input type="text" placeholder="Enter Username" name="name" required>
+                    </div>
+                    <div class="inputMargin">
+                        <label for="email"><b>Email*</b></label>
+                        <input type="email" placeholder="Enter Email" name="email" required>
+                    </div>
+                    <div class="inputMargin">
+                        <button type="button" (click)="guestEmailsClick()">Add Guests</button>
+                        <div *ngIf="isGuestEmailsDisplay">
+                            <label class="inputMargin">
+                               <p>Guest Email(s)</p>
+                            </label>
+                            <div> <input type="email" class="inputMargin">
+                            </div>
+                            <small>Notify up to 10 additional guests of the scheduled event</small>
                         </div>
-                        <small>Notify up to 10 additional guests of the scheduled event</small>
+                    </div>
+                    <div class="inputMargin">
+                        <button type="submit">Schedule Event</button>
                     </div>
                 </div>
-                <div class="inputMargin">
-                    <button type="submit">Schedule Event</button>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
 
@@ -90,34 +92,6 @@
     </div>
 
 
-    <div *ngIf="isFormDisplay">
-        <h2>Enter Details</h2>
-        <form>
-            <div class="container">
-                <div class="inputMargin">
-                    <label for="uname"><b>Name*</b></label>
-                    <input type="text" placeholder="Enter Username" name="name" required>
-                </div>
-                <div class="inputMargin">
-                    <label for="email"><b>Email*</b></label>
-                    <input type="email" placeholder="Enter Email" name="email" required>
-                </div>
-                <div class="inputMargin">
-                    <button type="button" (click)="guestEmailsClick()">Add Guests</button>
-                    <div *ngIf="isGuestEmailsDisplay">
-                        <label class="inputMargin">
-                           <p>Guest Email(s)</p>
-                        </label>
-                        <div> <input type="email" class="inputMargin">
-                        </div>
-                        <small>Notify up to 10 additional guests of the scheduled event</small>
-                    </div>
-                </div>
-                <div class="inputMargin">
-                    <button type="submit">Schedule Event</button>
-                </div>
-            </div>
-        </form>
-    </div>
+    
 
 </div> -->
