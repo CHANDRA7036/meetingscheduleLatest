@@ -7,13 +7,15 @@ import { AboutComponent } from
 import { CalendarComponent } from 
 './components/calendar/calendar.component';
 import { MeetingComponent } from './components/meeting/meeting.component';
-
+import { FormComponent } from './components/form/form.component';
 
 const routes: Routes = [
   // { path: '',component:TodosComponent },
   // { path: 'about',component:AboutComponent },
-  { path: '',component:MeetingComponent },
-  { path: 'calendar',component:CalendarComponent }
+  { path: 'calendar/chandrasekhar',component:MeetingComponent },
+  { path: 'calendar/chandrasekhar/7036',component:CalendarComponent },
+  { path: 'calendar/chandrasekhar/7036/confirm',component:FormComponent}
+
 ];
 
 @NgModule({

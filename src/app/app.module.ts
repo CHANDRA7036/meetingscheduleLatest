@@ -5,7 +5,9 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
+import { NzFormModule } from 'ng-zorro-antd/form';
 import { FormsModule } from '@angular/forms';
+
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
@@ -18,6 +20,7 @@ import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { MeetingComponent } from './components/meeting/meeting.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { SlotsComponent } from './components/slots/slots.component';
+import { FormComponent } from './components/form/form.component';
 registerLocaleData(en);
 
 @NgModule({
@@ -30,7 +33,8 @@ registerLocaleData(en);
     AddTodoComponent,
     MeetingComponent,
     CalendarComponent,
-    SlotsComponent
+    SlotsComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,8 @@ registerLocaleData(en);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NzButtonModule
+    NzButtonModule,
+    NzFormModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

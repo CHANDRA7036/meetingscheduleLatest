@@ -3,25 +3,34 @@
 }
 
 p {
-    margin: 0;
+    margin: 0px;
 }
 
 .mainContainer {
-    border: 1px solid black;
-    background-color: white;
+    border: 1px solid lightgrey;
+    background: #ECECEC;
     width: 50%;
     height: 60%;
     align-items: center;
-    margin-top: 10%;
+    margin-top: 12%;
     margin-left: 25%;
+    padding-top: 2%;
+    /* padding-left: 5%; */
+    padding-right: 15%;
+    padding-bottom: 15%;
+    position: relative;
 }
 
 .navContainer {
-    width: 50%;
-    height: 30%;
+    background-color: white;
     align-items: center;
     margin-top: 10%;
-    margin-left: 25%;
+    margin-left: 10%;
+}
+
+[nz-button] {
+    margin-right: 4px;
+    margin-bottom: 6px;
 }
 
 

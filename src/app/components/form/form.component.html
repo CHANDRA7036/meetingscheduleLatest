@@ -1,0 +1,48 @@
+<div class="mainContainer1" style="position: relative; ">
+    <h3 style="margin-left: 18%; margin-top: 5%;">Enter Details </h3>
+    <form nz-form style="margin-top: 10%; margin-top: 5%;">
+
+        <nz-form-item>
+            <nz-form-label [nzSpan]="6" nzFor="name">Name*</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+                <input nz-input name="name" type="name" id="name">
+            </nz-form-control>
+        </nz-form-item>
+
+
+        <nz-form-item>
+            <nz-form-label [nzSpan]="6" nzFor="email">E-mail*</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+                <input nz-input name="email" type="email" id="email">
+            </nz-form-control>
+        </nz-form-item>
+
+
+        <div class="inputMargin" style="margin-left: 17%;">
+            <button nz-button type="button" (click)="guestEmailsClick()" nzType="primary">Add Guests</button>
+
+            <div *ngIf="isGuestEmailsDisplay">
+                <label class="inputMargin">
+                       <p>Guest Email(s)</p>
+                    </label>
+                <div>
+                    <nz-form-control [nzSpan]="14">
+                        <input nz-input name="email" type="email" id="email">
+                    </nz-form-control>
+                </div>
+                <small>Notify up to 10 additional guests of the scheduled event</small>
+            </div>
+        </div>
+        <nz-form-item>
+            <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 16, offset: 8 }">
+                <button nz-button nzType="primary">Submit</button>
+            </nz-form-control>
+        </nz-form-item>
+    </form>
+
+</div>
+
+
+
+
+<!-- <button style="height:50px;width:100px">chandrasekhar12334</button> -->

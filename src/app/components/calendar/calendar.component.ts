@@ -76,7 +76,7 @@ export class CalendarComponent implements OnInit {
     console.log(`Current mode: ${change.mode}`);
   }
 
-meetingDuration:any
+meetingDuration:any;
 
   calculateTime($event){
     this.meetingDuration=$event.slotTime;
@@ -141,7 +141,4 @@ guestEmailsClick(){
 // time = document.getElementsByClassName('active');
 
 selectedValue=new Date();
-
-
-
 }

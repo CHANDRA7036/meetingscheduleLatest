@@ -1,64 +1,194 @@
-<div class="mainContainer">
-    <div style="width: 40%;height: 100%;float: left;">
-        <h2 style="top: 25%;position: relative;left: 10%;">
-            <p>30 minutes meeting</p>
-        </h2>
-        <div *ngIf="isDisplay" style="top: 25%;position: relative;left: 10%;">
-            <p> Selected Date: {{ selectedValue | date: 'fullDate' }}</p>
+<div class="mainContainer1" style="position: relative; ">
+    <div style="left: 2%;position: relative;">
+
+        <h5 style="color: gray;">Chandra Sekhar</h5>
+        <h4>Meeting:30 Minutes </h4>
+        <h5 style="color: gray;"><i nz-icon nzType="clock-circle" nzTheme="outline"></i> 30 Min</h5>
+        <div *ngIf="isDisplay">
+
+            <h4> <i nz-icon nzType="calendar" nzTheme="outline"></i> {{ selectedValue | date: 'fullDate' }}</h4>
             <p>{{meetingDuration}}</p>
+            <p><i nz-icon nzType="global" nzTheme="outline"></i> India Standard Time</p>
         </div>
     </div>
 
-    <div style="width: 60%;float:left; height: 100%">
-        <!-- <div *ngIf="!isDetailsFormdisplay"> -->
-        <div *ngIf="!isDetailsFormdisplay" style="float: left;width: 60%">
+
+    <!-- <div style="width: 40%;height: 100%;float: left;">
+        <h5 style="color: gray;">Prem Nath</h5>
+        <h4>30 minutes meeting</h4>
+        <h5 style="color: gray;">30 Min</h5>
+
+        <div *ngIf="isDisplay" style="top: 25%;position: relative;left: 10%;">
+            <p> Selected Date: {{ selectedValue | date: 'fullDate' }}</p>
+            <p>{{meetingDuration}}</p>
+
+        </div>
+    </div> -->
+
+</div>
+
+
+
+
+<!-- <div class="mainContainer" style="background: #ECECEC;padding:10px;">
+    <div nz-row [nzGutter]="8">
+
+        <div nz-col [nzSpan]="9">
+            <nz-card style="width: 100%;height:350px;float: left;">
+                <div style="width: 40%;height: 100%;float: left;">
+                    <h5 style="color: gray;">Prem Nath</h5>
+                    <h4>30 minutes meeting</h4>
+                    <h5 style="color: gray;">30 Min</h5>
+
+                    <div *ngIf="isDisplay" style="top: 25%;position: relative;left: 10%;">
+                        <p> Selected Date: {{ selectedValue | date: 'fullDate' }}</p>
+                        <p>{{meetingDuration}}</p>
+                    </div>
+                </div>
+            </nz-card>
+        </div>
+
+
+        <div nz-col [nzSpan]="15">
+            <nz-card style="width: 100%;height:350px;float: left;">
+
+                <div style="width: 60%;float:left; height: 100%">
+
+                    <div *ngIf="!isDetailsFormdisplay" style="float: left;width: 60%">
+                        <div>
+                            <h2 class="spotpicker-title">Select a Date &amp; Time</h2>
+                        </div>
+                        <div [ngStyle]="{ border: '1px solid #d9d9d9', borderRadius: '4px'}">
+
+                            <nz-calendar (click)="onClickCalendar()" [(ngModel)]="selectedValue" [nzFullscreen]="false"></nz-calendar>
+                        </div>
+                    </div>
+
+                    <div *ngIf="isDisplay && !isDetailsFormdisplay" style="float: right;width: 30%; height: 100%;" class="slots">
+                        <br><br>
+                        <p>{{ selectedValue | date: 'fullDate' }}</p>
+                        <app-slots *ngFor="let ButtonSlots of timeSlots.slotButtons; let i=index" [timeSlots]='timeSlots.slotButtons[i].slotTime' [isSlotActive]=timeSlots.slotButtons[i].isActive [allISActives]='timeSlots.slotButtons' (selectedTime)='calculateTime($event)' (formDisplayToggle)='onClickConfirmButtonInCalendar($event)'>
+
+
+                        </app-slots>
+                    </div>
+
+                    <div *ngIf="isDetailsFormdisplay">
+                        <h2>Enter Details</h2>
+                        <form>
+                            <div class="container">
+                                <div class="inputMargin">
+                                    <label for="uname"><b>Name*</b></label>
+                                    <input type="text" placeholder="Enter Username" name="name" required>
+                                </div>
+                                <div class="inputMargin">
+                                    <label for="email"><b>Email*</b></label>
+                                    <input type="email" placeholder="Enter Email" name="email" required>
+                                </div>
+                                <div class="inputMargin">
+                                    <button type="button" (click)="guestEmailsClick()">Add Guests</button>
+                                    <div *ngIf="isGuestEmailsDisplay">
+                                        <label class="inputMargin">
+                                           <p>Guest Email(s)</p>
+                                        </label>
+                                        <div> <input type="email" class="inputMargin">
+                                        </div>
+                                        <small>Notify up to 10 additional guests of the scheduled event</small>
+                                    </div>
+                                </div>
+                                <div class="inputMargin">
+                                    <button type="submit">Schedule Event</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+            </nz-card>
+        </div>
+
+    </div>
+</div> -->
+
+
+
+<div class="mainContainer">
+    <div style="height: 100%;" *ngIf="!isDetailsFormdisplay">
+
+        <!-- <div style="width: 60%;float: left;background-color: green;"> -->
+        <div *ngIf="!isDetailsFormdisplay" style="width: 40% ;float: left; height: 100%; left: 2%;position: relative;">
             <div>
                 <h2 class="spotpicker-title">Select a Date &amp; Time</h2>
             </div>
             <div [ngStyle]="{ border: '1px solid #d9d9d9', borderRadius: '4px'}">
-                <!-- <div [ngStyle]="{ width: '350px', border: '1px solid #d9d9d9', borderRadius: '4px' }"> -->
+
                 <nz-calendar (click)="onClickCalendar()" [(ngModel)]="selectedValue" [nzFullscreen]="false"></nz-calendar>
             </div>
         </div>
-
-        <div *ngIf="isDisplay && !isDetailsFormdisplay" style="float: right;width: 30%; height: 100%;" class="slots">
-            <br><br>
-            <app-slots *ngFor="let ButtonSlots of timeSlots.slotButtons; let i=index" [timeSlots]='timeSlots.slotButtons[i].slotTime' [isSlotActive]=timeSlots.slotButtons[i].isActive [allISActives]='timeSlots.slotButtons' (selectedTime)='calculateTime($event)' (formDisplayToggle)='onClickConfirmButtonInCalendar($event)'>
-
-                <!-- <app-slots *ngFor="let ButtonSlots of timeSlots.slotButtons; let i=index" [timeSlots]='timeSlots.slotButtons[i]' [isSlotSelected]=timeSlots.confirmBtnDisplay[i] (isConfirmClicked)='checkFormDispaylayed($event)'> -->
-            </app-slots>
-        </div>
         <!-- </div> -->
-        <div *ngIf="isDetailsFormdisplay">
-            <h2>Enter Details</h2>
-            <form>
-                <div class="container">
-                    <div class="inputMargin">
-                        <label for="uname"><b>Name*</b></label>
-                        <input type="text" placeholder="Enter Username" name="name" required>
-                    </div>
-                    <div class="inputMargin">
-                        <label for="email"><b>Email*</b></label>
-                        <input type="email" placeholder="Enter Email" name="email" required>
-                    </div>
-                    <div class="inputMargin">
-                        <button type="button" (click)="guestEmailsClick()">Add Guests</button>
-                        <div *ngIf="isGuestEmailsDisplay">
-                            <label class="inputMargin">
+
+        <div style="width: 50%;float:right;height: 100%;top: 5%;" *ngIf="isDisplay ">
+            <p>{{ selectedValue | date: 'fullDate' }}</p>
+            <div style="height: 90%;" class="slots">
+                <app-slots *ngFor="let ButtonSlots of timeSlots.slotButtons; let i=index" [timeSlots]='timeSlots.slotButtons[i].slotTime' [isSlotActive]=timeSlots.slotButtons[i].isActive [allISActives]='timeSlots.slotButtons' (selectedTime)='calculateTime($event)' (formDisplayToggle)='onClickConfirmButtonInCalendar($event)'>
+                </app-slots>
+            </div>
+        </div>
+
+    </div>
+    <!-- <div *ngIf="isDetailsFormdisplay">
+        <h4 style="left: 10%;">Enter Details </h4>
+        <form nz-form>
+            <nz-form-item>
+                <nz-form-label [nzSpan]="6" nzFor="email">E-mail</nz-form-label>
+                <nz-form-control [nzSpan]="14">
+                    <input nz-input name="email" type="email" id="email">
+                </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+                <nz-form-label [nzSpan]="6" nzFor="name">Name</nz-form-label>
+                <nz-form-control [nzSpan]="14">
+                    <input nz-input name="name" type="name" id="name">
+                </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+                <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 16, offset: 8 }">
+                    <button nz-button nzType="primary">Submit</button>
+                </nz-form-control>
+            </nz-form-item>
+        </form>
+        </div> -->
+
+    <!-- <form>
+            <div class="container">
+                <div class="inputMargin">
+                    <label for="uname"><b>Name*</b></label>
+                    <input type="text" placeholder="Enter Username" name="name" required>
+                </div>
+                <div class="inputMargin">
+                    <label for="email"><b>Email*</b></label>
+                    <input type="email" placeholder="Enter Email" name="email" required>
+                </div>
+                <div class="inputMargin">
+                    <button type="button" (click)="guestEmailsClick()">Add Guests</button>
+                    <div *ngIf="isGuestEmailsDisplay">
+                        <label class="inputMargin">
                                <p>Guest Email(s)</p>
                             </label>
-                            <div> <input type="email" class="inputMargin">
-                            </div>
-                            <small>Notify up to 10 additional guests of the scheduled event</small>
+                        <div> <input type="email" class="inputMargin">
                         </div>
-                    </div>
-                    <div class="inputMargin">
-                        <button type="submit">Schedule Event</button>
+                        <small>Notify up to 10 additional guests of the scheduled event</small>
                     </div>
                 </div>
-            </form>
-        </div>
-    </div>
+                <div class="inputMargin">
+                    <button type="submit">Schedule Event</button>
+                </div>
+            </div>
+        </form> -->
+
 </div>
 
 
