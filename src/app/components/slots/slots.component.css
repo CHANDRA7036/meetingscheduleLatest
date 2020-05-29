@@ -1,21 +1,51 @@
-/* .button1 {
+.button1 {
     width: 100%;
     border: none;
     color: black;
-    padding: 6px 55px;
+    width: 150px;
+    height: 40px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    margin: 4px 2px;
     cursor: pointer;
-} */
+}
+
+.button {
+    border: none;
+    color: black;
+    width: 75px;
+    height: 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
 
 
 /* [nz-button] {
-    margin-bottom: 12px;
-}
+    margin-bottom: 10px;
+} */
 
 nz-button-group {
-    margin-bottom: 8px;
-    margin-right: 8px;
+    margin-bottom: 6px;
+    margin-right: 6px;
+}
+
+
+/* .btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.btn-group button:not(:last-child) {
+    border-right: none;
+
+}
+
+
+
+
+.btn-group button:hover {
+    background-color: #3e8e41;
 } */

@@ -32,4 +32,10 @@ export class TodosComponent implements OnInit {
 
     });
   }
+
+
+getData(){
+  
+}
+
 }

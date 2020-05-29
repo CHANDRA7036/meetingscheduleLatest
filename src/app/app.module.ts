@@ -21,6 +21,7 @@ import { MeetingComponent } from './components/meeting/meeting.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { SlotsComponent } from './components/slots/slots.component';
 import { FormComponent } from './components/form/form.component';
+import { MeetinginfoComponent } from './components/meetinginfo/meetinginfo.component';
 registerLocaleData(en);
 
 @NgModule({
@@ -34,7 +35,8 @@ registerLocaleData(en);
     MeetingComponent,
     CalendarComponent,
     SlotsComponent,
-    FormComponent
+    FormComponent,
+    MeetinginfoComponent
   ],
   imports: [
     BrowserModule,

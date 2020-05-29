@@ -1,29 +1,75 @@
 <!-- <nz-button-group>
-
     <button class="button1" nz-button nzType="default" (click)="onClickSlot()" *ngIf="!isSlotActive">{{timeSlots}}</button>
     <div *ngIf="isSlotActive">
-        <button nz-button>{{timeSlots}}</button>
-        <button nz-button nzType="primary" (click)='onClickConfirmButton()' (click)='dateSlotSelected()'>Confirm</button>
+        <button nz-button class="button">{{timeSlots}}</button>
+        <button nz-button class="button" nzType="primary" (click)='onClickConfirmButton()' (click)='dateSlotSelected()'>Confirm</button>
     </div>
 </nz-button-group> -->
 
-
-
-
-
 <nz-button-group>
-    <button nz-button (click)="onClickSlot()" *ngIf="!isSlotActive" style="height:40px; width:120px"> {{timeSlots}} </button>
-    <!-- <button class="button1" nz-button nzType="default" (click)="onClickSlot()" *ngIf="!isSlotActive">{{timeSlots}}</button> -->
-    <div *ngIf="isSlotActive" style="display: inline;">
-        <button nz-button style="height:40px; width:60px">{{timeSlots}}</button>
+    <button class="button1" nz-button nzType="default" (click)="onClickSlot()" *ngIf="!isSlotActive">{{timeSlots}}</button>
+    <div *ngIf="isSlotActive">
+        <button nz-button class="button">{{timeSlots}}</button>
         <nav>
             <a routerLink="/calendar/chandrasekhar/7036"></a>
             <a routerLink="/calendar/chandrasekhar/7036/confirm">
-                <button nz-button nzType="primary" style="height:40px;width:60px" (click)='onClickConfirmButton()' (click)='dateSlotSelected()'>Confirm</button>
+                <button nz-button nzType="primary" class="button" (click)='onClickConfirmButton()' (click)='dateSlotSelected()'>Confirm</button>
             </a>
         </nav>
     </div>
 </nz-button-group>
+
+
+
+<!-- <nz-button-group style="width:100%">
+
+    <button nz-button style="width:30%" (click)="onClickSlot()" *ngIf="!isSlotActive"> {{timeSlots}} </button>
+    <div *ngIf="isSlotActive">
+        <button nz-button style="width:30%">{{timeSlots}}</button>
+        <nav>
+            <a routerLink="/calendar/chandrasekhar/7036"></a>
+            <a routerLink="/calendar/chandrasekhar/7036/confirm">
+                <button nz-button nzType="primary" style="width:30%" (click)='onClickConfirmButton()' (click)='dateSlotSelected()'>Confirm</button>
+            </a>
+        </nav>
+    </div>
+</nz-button-group> -->
+
+
+<!-- <div class="btn-group" style="width:100%">
+    <button nz-button style="width:100%" (click)="onClickSlot()" *ngIf="!isSlotActive"> {{timeSlots}} </button>
+    <div *ngIf="isSlotActive">
+        <button style="widows: 60%">{{timeSlots}}</button>
+        <button style="width:50%" (click)='onClickConfirmButton()' (click)='dateSlotSelected()'>Confirm</button>
+    </div>
+</div> -->
+
+
+<!-- <div class="btn-group" style="width:100%">
+    <button nz-button style="width:30%" (click)="onClickSlot()" *ngIf="!isSlotActive"> {{timeSlots}} </button>
+
+
+    <div *ngIf="isSlotActive">
+
+        <button style="width:30%">{{timeSlots}}</button>
+
+        <div>
+            <nav>
+                <a routerLink="/calendar/chandrasekhar/7036"></a>
+                <a routerLink="/calendar/chandrasekhar/7036/confirm">
+                    <button style="width:30%" (click)='onClickConfirmButton()' (click)='dateSlotSelected()'>Confirm</button>
+                </a>
+            </nav>
+        </div>
+    </div>
+
+</div> -->
+
+<!-- <nz-button-group>
+    <button nz-button nzType="default">L</button>
+    <button nz-button nzType="default">M</button>
+    <button nz-button nzType="default">R</button>
+</nz-button-group> -->
 
 
 

@@ -76,8 +76,7 @@ export class CalendarComponent implements OnInit {
     console.log(`Current mode: ${change.mode}`);
   }
 
-meetingDuration:any;
-
+  meetingDuration:any;
   calculateTime($event){
     this.meetingDuration=$event.slotTime;
   }
@@ -97,22 +96,6 @@ onClickConfirmButtonInCalendar($event){
   // }
 
 
-//   slotTimeUpdate:any;
-
-//   changeSlotSelectedValue(ButtonSlots){
-//   this.slotTimeUpdate=this.timeSlots.slotButtons.find(this.findSlot,[ButtonSlots.slotTime]);
-//   this.slotTimeUpdate.isActive=true;
-//   }
-
-//   findSlot(ButtonSlots){
-//     return ButtonSlots.isActive === this[0];
-// }
-
-//  isShow=true;
-//  onClickMeetingDiv(){
-//    this.isShow=!this.isShow;
-//  }
-
  isDisplay=false;
 onClickCalendar(){
   this.isDisplay=true;
@@ -128,17 +111,10 @@ checkFormDispaylayed(){
   this.isFormDisplay=!this.isFormDisplay;
 }
 
-// isFormDisplay=false;
-// confirmClick(){
-//   this.isFormDisplay=!this.isFormDisplay;
-// }
-
 isGuestEmailsDisplay=false;
 guestEmailsClick(){
   this.isGuestEmailsDisplay=!this.isGuestEmailsDisplay;
 }
-
-// time = document.getElementsByClassName('active');
 
 selectedValue=new Date();
 }

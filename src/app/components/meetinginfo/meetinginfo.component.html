@@ -1,0 +1,13 @@
+<div class="mainContainer1" style="position: relative; ">
+    <div style="left: 2%;position: relative;">
+
+        <h5 style="color: gray;">Chandra Sekhar</h5>
+        <h4>Meeting:40 Minutes </h4>
+        <h5 style="color: gray;"><i nz-icon nzType="clock-circle" nzTheme="outline"></i> 30 Min</h5>
+        <div *ngIf="isDateSelected">
+            <h4> <i nz-icon nzType="calendar" nzTheme="outline"></i> {{ selectedDate | date: 'fullDate' }}</h4>
+            <p>{{selectedSlotTime}}</p>
+            <p><i nz-icon nzType="global" nzTheme="outline"></i> India Standard Time</p>
+        </div>
+    </div>
+</div>
