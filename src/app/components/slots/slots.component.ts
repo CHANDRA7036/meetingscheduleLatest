@@ -53,5 +53,4 @@ onClickConfirmButton(){
   this.isFormDisplay=!this.isFormDisplay;
   this.formDisplayToggle.emit(this.isFormDisplay);
 }
-
 }

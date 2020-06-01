@@ -18,4 +18,9 @@ guestEmailsClick(){
   this.isGuestEmailsDisplay=!this.isGuestEmailsDisplay;
 }
 
+// location;
+// goBack(): void {
+//   this.location.back();
+// }
+
 }

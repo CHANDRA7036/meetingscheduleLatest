@@ -9,34 +9,26 @@ import { Meetings } from '../../components/meeting/Meetings';
   templateUrl: './meeting.component.html',
   styleUrls: ['./meeting.component.css']
 })
+
 export class MeetingComponent implements OnInit {
-  meetings:Meetings[];
-  
-  constructor(private meetingService:MeetingService) {
+  public meetings: any;
+  public calendarRoutes1:any;
+  public isShow:boolean = true;
+
+
+  constructor(private meetingService: MeetingService) {
   };
 
   ngOnInit(): void {
-    this.meetings=this.meetingService.getMeetings();
+
+    this.meetings = this.meetingService.getMeetings();
+    this.calendarRoutes1=this.meetingService.onTap();
+    
   }
 
-
-
-  // meetingDuration:any;
- // this.meetingDuration={
-    //  duration: [
-    //   '30 Minute',      
-    // ]}
-
-  // this.meetingDuration=[
-  //   {duration: '30 Minute' }, 
-  //   {duration: '60 Minute' },    
-    
-  // ]
-
- isShow=true;
- onClickMeetingDiv(){
-   this.isShow=!this.isShow;
- }
+  onClickMeetingDiv() {
+    this.isShow = !this.isShow;
+  }
 
 }
 
