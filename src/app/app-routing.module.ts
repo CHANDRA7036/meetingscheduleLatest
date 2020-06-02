@@ -13,10 +13,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 const routes: Routes = [
   // { path: '',component:TodosComponent },
   // { path: 'about',component:AboutComponent },
-  { path: 'calendar/chandrasekhar',component:MeetingComponent },
-  { path: 'calendar/chandrasekhar/7036',component:CalendarComponent },
-  { path: 'calendar/chandrasekhar/7036/confirm',component:FormComponent},
-  { path: '**', component: PageNotFoundComponent } ,
+  { path: 'calendar/:calendarUsername',component:MeetingComponent },
+  { path: 'calendar/:calendarUsername/:id',component:CalendarComponent },
+  { path: 'calendar/:calendarUsername/:id/confirm',component:FormComponent},
+  { path: '**', component: PageNotFoundComponent },
 
 ];
 

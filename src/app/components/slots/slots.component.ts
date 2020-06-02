@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output ,EventEmitter} from '@angular/core';
+import { MeetingService } from '../../services/meeting.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -14,16 +16,18 @@ export class SlotsComponent implements OnInit {
   @Output() isSlotSelectedAfterChange:EventEmitter<any>=new EventEmitter();
   @Output() selectedTime:EventEmitter<any>=new EventEmitter();
   @Output() formDisplayToggle:EventEmitter<any>=new EventEmitter();
+
+  calendarUsername: any;
   ngOnInit(): void {
+
+
   }
 
-  constructor() {    
+  constructor() {  
+    
   }
 
-  // isDisplay=false;
-  // onClickCalendar(){
-  //   this.isDisplay=true;
-  // }
+ 
 
 dateSlotSelected(){
   this.selectedTime.emit({slotTime:this.timeSlots});  

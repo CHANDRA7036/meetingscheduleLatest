@@ -7,46 +7,101 @@ export class MeetingService {
 
   calendarRoutes: any;
 
-  constructor() { }
-
-  getMeetings() {
-    return [
-      { meetingDuration: '30 Minutes' },
-      { meetingDuration: '60 Minutes' }
-    ]   
+  private meetingSlots: any = {
+    premNath:{
+      201:{
+        slotButtons:[
+          {slotTime:'9.00AM' , isActive:false},
+          {slotTime:'9.15AM' , isActive:false},
+          {slotTime:'9.30AM' , isActive:false},
+          {slotTime:'9.45AM' , isActive:false},
+          {slotTime:'10.00AM' , isActive:false},
+          {slotTime:'10.15AM' , isActive:false},
+          {slotTime:'10.30AM' , isActive:false},
+          {slotTime:'10.45AM' , isActive:false},
+          {slotTime:'11.00AM' , isActive:false},
+          {slotTime:'11.15AM' , isActive:false},          
+        ]
+      },
+      202:{
+        slotButtons:[
+          {slotTime:'9.00AM' , isActive:false},
+          {slotTime:'9.15AM' , isActive:false},
+          {slotTime:'9.30AM' , isActive:false},
+          {slotTime:'9.45AM' , isActive:false},
+          {slotTime:'10.00AM' , isActive:false},
+          {slotTime:'10.15AM' , isActive:false},
+          {slotTime:'10.30AM' , isActive:false},         
+        ]
+      }
+    },
+    chandrasekhar:{
+      201:{
+        slotButtons:[
+          {slotTime:'9.00AM' , isActive:false},
+          {slotTime:'9.15AM' , isActive:false},
+          {slotTime:'9.30AM' , isActive:false},
+          {slotTime:'9.45AM' , isActive:false},
+          {slotTime:'10.00AM' , isActive:false},
+          {slotTime:'10.15AM' , isActive:false},
+          {slotTime:'10.30AM' , isActive:false},
+          {slotTime:'10.45AM' , isActive:false},
+          {slotTime:'11.00AM' , isActive:false},
+          {slotTime:'11.15AM' , isActive:false},          
+        ]
+      },
+      202:{
+        slotButtons:[
+          {slotTime:'9.00AM' , isActive:false},
+          {slotTime:'9.15AM' , isActive:false},
+          {slotTime:'9.30AM' , isActive:false},
+          {slotTime:'9.45AM' , isActive:false},
+          {slotTime:'10.00AM' , isActive:false},
+          {slotTime:'10.15AM' , isActive:false},
+          {slotTime:'10.30AM' , isActive:false},         
+        ]
+      }
+    }
   }
   
-  onTap() {
-    this.calendarRoutes = {
-      "calendar": "calendar",
-      "profile":[
-        {
-          "profileName":"chandrasekhar",
-          "profileIdList":["7036","7037"],
-          "confirm": "confirm"
-        },
-        {
-          "profileName":"prem",
-          "profileIdList":["7036","7037"],
-          "confirm": "confirm"
-        }
-      ]
-    };
-   return this.calendarRoutes;
+private userMeetings:any={
+  chandrasekhar: [
+    {
+      id: 101,
+      name: '30 Minutes',
+      duration: '30',
+      description: 'Book meeting for 30mins'
+    },
+    {
+      id: 102,
+      name: '60 Minutes',
+      duration: '60',
+      description: 'Book meeting for 30mins'
+    }
+  ],
+  premNath: [
+    {
+      id: 101,
+      name: '30 Minutes',
+      duration: '30',
+      description: 'Book meeting for 30mins'
+    },
+    {
+      id: 102,
+      name: '60 Minutes',
+      duration: '60',
+      description: 'Book meeting for 30mins'
+    }
+  ]
+}
+  constructor() { }
+
+  getMeetingsByName(name) {
+    return this.userMeetings[name];
   }
 
-
-
-  // getRouts(){
-  //   calendar:
-  //     chandrasekhar:
-  //       7036:
-  // }
-
-  // routeCompontes=[
-  //   { "id":123},
-  //   { "id":1234},
-  //   { "id":12345},
-  // ]
+  getSlotsById(id){
+    return this.meetingSlots[id];
+  }
 
 }
