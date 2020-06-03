@@ -7,20 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormComponent implements OnInit {
 
+  isGuestEmailsDisplay = false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
-
-  isGuestEmailsDisplay=false;
-guestEmailsClick(){
-  this.isGuestEmailsDisplay=!this.isGuestEmailsDisplay;
-}
-
-// location;
-// goBack(): void {
-//   this.location.back();
-// }
+  guestEmailsClick() {
+    this.isGuestEmailsDisplay = !this.isGuestEmailsDisplay;
+  }
 
 }

@@ -9,11 +9,11 @@ p {
 .mainContainer {
     border: 1px solid lightgrey;
     background: #ECECEC;
-    width: 50%;
-    height: 60%;
+    width: 60%;
+    height: 75%;
     align-items: center;
-    margin-top: 12%;
-    margin-left: 25%;
+    margin-top: 8%;
+    margin-left: 20%;
     padding-top: 2%;
     /* padding-left: 5%; */
     padding-right: 15%;

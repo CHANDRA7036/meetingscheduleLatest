@@ -7,36 +7,19 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MeetinginfoComponent implements OnInit {
 
+  @Input() selectedDate: any;
+  @Input() isDateSelected: any;
+  @Input() selectedSlotTime: any;
 
-@Input() selectedDate:any;
-@Input() isDateSelected:any;
-// @Input() durationTime:any;
-@Input() selectedSlotTime:any;
+  meetingDuration: any;
 
   constructor() { }
-
 
   ngOnInit(): void {
   }
 
-
-
- 
-
-  selectedValue=new Date();
-
-
-  meetingDuration:any;
-
-  calculateTime($event){
-    this.meetingDuration=$event.slotTime;
+  calculateTime($event) {
+    this.meetingDuration = $event.slotTime;
   }
-
-
-
-
-
-
-  
 
 }

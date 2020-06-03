@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MeetingService } from '../../services/meeting.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Pipe, PipeTransform } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-calendar',
@@ -10,118 +12,61 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CalendarComponent implements OnInit {
 
   calendarUsername: any;
-  id:any;
+  id: any;
   meetings: any;
+  timeSlots: any;
+  meetingDuration: any;
+  isDetailsFormdisplay: boolean;
+  isDisplay = false;
+  isSlotDisplay = false;
+  isFormDisplay = false;
+  isGuestEmailsDisplay = false;
+  selectedValue: any;
+
+
+  eventData: any = {
+    date: "",
+    time: "",
+  }
 
   ngOnInit(): void {
   }
- 
 
-  // timeSlots:any;
-  // constructor(private meetingService: MeetingService) { 
-
-  //   this.timeSlots = this.meetingService.getMeetingsByName(this.calendarUsername).slotButtons;
-  
-  // }
-
-
-
-
-  timeSlots:any;
-  met:any;
   constructor(private meetingService: MeetingService, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe(params => {
       this.calendarUsername = params['calendarUsername'];
       this.id = params['id'];
     });
-    //this.met = this.meetingService.getMeetingsByName(this.calendarUsername);
-    this.timeSlots=this.meetingService.getSlotsById(this.calendarUsername);
-    alert(this.timeSlots[this.id]);
-    // this.timeSlots={
-
-    //       slotButtons:[
-    //         {slotTime:'9.00AM' , isActive:false},
-    //         {slotTime:'9.15AM' , isActive:false},
-    //         {slotTime:'9.30AM' , isActive:false},
-    //         {slotTime:'9.45AM' , isActive:false},
-    //         {slotTime:'10.00AM' , isActive:false},
-    //         {slotTime:'10.15AM' , isActive:false},
-    //         {slotTime:'10.30AM' , isActive:false},
-    //         {slotTime:'10.45AM' , isActive:false},
-    //         {slotTime:'11.00AM' , isActive:false},
-    //         {slotTime:'11.15AM' , isActive:false},
-    //         {slotTime:'11.30AM' , isActive:false},
-    //         {slotTime:'11.45AM' , isActive:false},
-    //         {slotTime:'12.00PM' , isActive:false},
-    //         {slotTime:'12.10PM' , isActive:false},
-    //         {slotTime:'12.30PM' , isActive:false},
-    //         {slotTime:'12.45PM' , isActive:false},
-    //         {slotTime:'1.00PM' , isActive:false},
-    //         {slotTime:'1.15PM' , isActive:false},
-    //         {slotTime:'1.30PM' , isActive:false},
-    //         {slotTime:'1.45PM' , isActive:false},
-    //         {slotTime:'2.00PM' , isActive:false},
-    //         {slotTime:'2.15PM' , isActive:false},
-    //         {slotTime:'2.30PM' , isActive:false},
-    //         {slotTime:'2.45PM' , isActive:false},
-    //         {slotTime:'3.00PM' , isActive:false},
-    //         {slotTime:'3.15PM' , isActive:false},
-    //         {slotTime:'3.30PM' , isActive:false},
-    //         {slotTime:'3.45PM' , isActive:false},
-    //         {slotTime:'4.00PM' , isActive:false},
-    //         {slotTime:'4.15PM' , isActive:false},
-    //         {slotTime:'4.30PM' , isActive:false}           
-    //       ]
-    // }
   }
 
-  onValueChange(value: Date): void {
-    console.log(`Current value: ${value}`);
-  }
-  onPanelChange(change: { date: Date; mode: string }): void {
-    console.log(`Current value: ${change.date}`);
-    console.log(`Current mode: ${change.mode}`);
+  calculateTime($event) {
+    this.meetingDuration = $event.slotTime;
+    this.eventData.time = this.meetingDuration;
   }
 
-  meetingDuration:any;
-  calculateTime($event){
-    this.meetingDuration=$event.slotTime;
+  onClickConfirmButtonInCalendar($event) {
+    this.isDetailsFormdisplay = $event;
+    // this.router.navigate(['/calendar', this.calendarUsername, this.id, 'confirm' + this.eventData]);
   }
 
-isDetailsFormdisplay:boolean;
-onClickConfirmButtonInCalendar($event){
-  this.isDetailsFormdisplay=$event;
-}
-//   disabledDate = (current) =>{         
-//     // Can not select days after today and before start Date
-//     const start = moment('2020-01-01','YYYY-MM-DD');        
-//     return  current< start || current>moment();
-// }
+  onClickCalendar() {
+    this.timeSlots = this.meetingService.getSlotsById(this.calendarUsername)[this.id];
+    this.isDisplay = true;
+    this.eventData.date = this.transform(this.selectedValue);
+  }
 
-  // disabledDate={(current)=>
-  //   return [moment().add(-1,'days')]
-  // }
+  transform(value: string) {
+    var datePipe = new DatePipe("en-US");
+    value = datePipe.transform(value, 'fullDate');
+    return value;
+  }
 
+  onClickSlot() {
+    this.isSlotDisplay = !this.isSlotDisplay;
+  }
 
- isDisplay=false;
-onClickCalendar(){
-  this.isDisplay=true;
-}
+  checkFormDispaylayed() {
+    this.isFormDisplay = !this.isFormDisplay;
+  }
 
- isSlotDisplay=false;
-onClickSlot(){
-  this.isSlotDisplay=!this.isSlotDisplay;
-}
-
-isFormDisplay=false;
-checkFormDispaylayed(){
-  this.isFormDisplay=!this.isFormDisplay;
-}
-
-isGuestEmailsDisplay=false;
-guestEmailsClick(){
-  this.isGuestEmailsDisplay=!this.isGuestEmailsDisplay;
-}
-
-selectedValue=new Date();
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output ,EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MeetingService } from '../../services/meeting.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -10,51 +10,62 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class SlotsComponent implements OnInit {
 
-  @Input() timeSlots:string;
-  @Input() isSlotActive:boolean;
-  @Input() allISActives:any;
-  @Output() isSlotSelectedAfterChange:EventEmitter<any>=new EventEmitter();
-  @Output() selectedTime:EventEmitter<any>=new EventEmitter();
-  @Output() formDisplayToggle:EventEmitter<any>=new EventEmitter();
+  @Input() timeSlots: string;
+  @Input() isSlotActive: boolean;
+  @Input() allISActives: any;
+  @Output() isSlotSelectedAfterChange: EventEmitter<any> = new EventEmitter();
+  @Output() selectedTime: EventEmitter<any> = new EventEmitter();
+  @Output() formDisplayToggle: EventEmitter<any> = new EventEmitter();
 
   calendarUsername: any;
+  id: any;
+  isGuestEmailsDisplay = false;
+  isFormDisplay = false;
+
   ngOnInit(): void {
-
-
   }
 
-  constructor() {  
-    
+  constructor(private meetingService: MeetingService, private route: ActivatedRoute, private router: Router) {
+    this.route.params.subscribe(params => {
+      this.calendarUsername = params['calendarUsername'];
+      this.id = params['id'];
+    });
+  };
+
+  dateSlotSelected() {
+    this.selectedTime.emit({ slotTime: this.timeSlots });
+    // alert(this.timeSlots);
   }
 
- 
-
-dateSlotSelected(){
-  this.selectedTime.emit({slotTime:this.timeSlots});  
-}
-
-  onClickSlot(){
-    this.isSlotActive=!this.isSlotActive;
-
+  onClickSlot() {
+    this.isSlotActive = !this.isSlotActive;
     for (let index = 0; index < this.allISActives.length; index++) {
-      if(this.allISActives[index].slotTime==this.timeSlots){
-        this.allISActives[index].isActive=this.isSlotActive;
-        //alert(this.allISActives[index].isActive);
-      }else{
-        this.allISActives[index].isActive=false;
+      if (this.allISActives[index].slotTime == this.timeSlots) {
+        this.allISActives[index].isActive = this.isSlotActive;
+      } else {
+        this.allISActives[index].isActive = false;
       }
     }
-    this.isSlotSelectedAfterChange.emit({isActive:this.allISActives}); 
-  }  
-  
-isGuestEmailsDisplay=false;
-guestEmailsClick(){
-  this.isGuestEmailsDisplay=!this.isGuestEmailsDisplay;
-}
+    this.isSlotSelectedAfterChange.emit({ isActive: this.allISActives });
+  }
 
-isFormDisplay=false;
-onClickConfirmButton(){
-  this.isFormDisplay=!this.isFormDisplay;
-  this.formDisplayToggle.emit(this.isFormDisplay);
-}
+  guestEmailsClick() {
+    this.isGuestEmailsDisplay = !this.isGuestEmailsDisplay;
+  }
+
+  onClickConfirmButton() {
+    //this.router.navigate(['/calendar',this.calendarUsername,this.id,'confirm',  {information:this.eventData}]);
+    this.router.navigate(['/calendar', this.calendarUsername, this.id, 'confirm']);
+    this.isFormDisplay = !this.isFormDisplay;
+    this.formDisplayToggle.emit(this.isFormDisplay);
+    // alert(this.timeSlots);
+  }
+
+
+
+
+
+
+
+
 }

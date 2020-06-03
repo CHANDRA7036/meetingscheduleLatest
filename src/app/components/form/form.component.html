@@ -1,9 +1,9 @@
 <div>
-    <app-meetinginfo></app-meetinginfo>
+    <app-meetinginfo> </app-meetinginfo>
 </div>
 
-<div class="mainContainer1" style="position: relative; ">
-    <h3 style="margin-left: 18%; margin-top: 5%;">Enter Details </h3>
+<div class="mainContainer" style="position: relative; ">
+    <h3 style="margin-left: 18%; margin-top: 2%;">Enter Details </h3>
     <form nz-form style="margin-top: 10%; margin-top: 5%;">
 
         <nz-form-item>
@@ -13,14 +13,12 @@
             </nz-form-control>
         </nz-form-item>
 
-
         <nz-form-item>
             <nz-form-label [nzSpan]="6" nzFor="email">E-mail*</nz-form-label>
             <nz-form-control [nzSpan]="14">
                 <input nz-input name="email" type="email" id="email">
             </nz-form-control>
         </nz-form-item>
-
 
         <div class="inputMargin" style="margin-left: 17%;">
             <button nz-button type="button" (click)="guestEmailsClick()" nzType="primary">Add Guests</button>
@@ -43,11 +41,4 @@
             </nz-form-control>
         </nz-form-item>
     </form>
-    <!-- <button (click)="goBack()">go back</button> -->
-
 </div>
-
-
-
-
-<!-- <button style="height:50px;width:100px">chandrasekhar12334</button> -->

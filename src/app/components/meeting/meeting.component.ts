@@ -13,47 +13,27 @@ import { ActivatedRoute, Router } from "@angular/router";
 
 export class MeetingComponent implements OnInit {
   calendarUsername: any;
-  id:any;
+  id: any;
   meetings: any;
   isShow: boolean = true;
-
 
   constructor(private meetingService: MeetingService, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe(params => {
       this.calendarUsername = params['calendarUsername'];
     });
-    
   };
 
   ngOnInit(): void {
-    //  this.router.navigate('/calendarUsername');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
     this.meetings = this.meetingService.getMeetingsByName(this.calendarUsername);
-    // this.calendarRoutes1=this.meetingService.onTap();
-
   }
 
-  onClickGo(id){
-    alert (id);
-   
-    this.router.navigate(['/calendar',this.calendarUsername,id]);
-
+  onClickGo(id) {
+    this.router.navigate(['/calendar', this.calendarUsername, id]);
   }
 
   onClickMeetingDiv() {
     this.isShow = !this.isShow;
-   
   }
-
-  // onMeetings(id: number) {
-  //   this.router.navigate(['id', id]); (1)
-  // }
-
-  // doSearch(term: string) {
-  //   // this.loading = true;
-  //   // this.itunes.search(term).then(_ => (this.loading = false));
-  // }
-
-
 
 }
 

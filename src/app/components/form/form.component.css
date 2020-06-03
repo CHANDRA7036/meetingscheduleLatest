@@ -1,9 +1,9 @@
-.mainContainer1 {
+.mainContainer {
     border: 0.5px solid gray;
     background: #ECECEC;
     width: 65%;
     height: 60%;
-    margin-top: 10%;
+    margin-top: 1%;
     margin-left: 17%;
     position: relative;
 }
