@@ -23,6 +23,8 @@ import { SlotsComponent } from './components/slots/slots.component';
 import { FormComponent } from './components/form/form.component';
 import { MeetinginfoComponent } from './components/meetinginfo/meetinginfo.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MycalendlyComponent } from './components/mycalendly/mycalendly.component';
+import { EventTypeComponent } from './components/event-type/event-type.component';
 registerLocaleData(en);
 
 @NgModule({
@@ -38,7 +40,9 @@ registerLocaleData(en);
     SlotsComponent,
     FormComponent,
     MeetinginfoComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    MycalendlyComponent,
+    EventTypeComponent
   ],
   imports: [
     BrowserModule,

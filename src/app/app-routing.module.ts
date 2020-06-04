@@ -8,16 +8,18 @@ import { CalendarComponent } from
   './components/calendar/calendar.component';
 import { MeetingComponent } from './components/meeting/meeting.component';
 import { FormComponent } from './components/form/form.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MycalendlyComponent } from './components/mycalendly/mycalendly.component';
+import { EventTypeComponent } from './components/event-type/event-type.component';
+
 
 const routes: Routes = [
-  // { path: '',component:TodosComponent },
-  // { path: 'about',component:AboutComponent },
+  { path: '', component: MycalendlyComponent },
+  { path: 'event-type/new', component: EventTypeComponent },
   { path: 'calendar/:calendarUsername', component: MeetingComponent },
   { path: 'calendar/:calendarUsername/:id', component: CalendarComponent },
   { path: 'calendar/:calendarUsername/:id/confirm', component: FormComponent },
   { path: '**', component: PageNotFoundComponent },
-
 ];
 
 @NgModule({

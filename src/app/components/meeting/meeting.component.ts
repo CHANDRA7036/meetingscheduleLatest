@@ -16,6 +16,7 @@ export class MeetingComponent implements OnInit {
   id: any;
   meetings: any;
   isShow: boolean = true;
+  NewEventTypeForm:boolean=false;
 
   constructor(private meetingService: MeetingService, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe(params => {
@@ -33,6 +34,14 @@ export class MeetingComponent implements OnInit {
 
   onClickMeetingDiv() {
     this.isShow = !this.isShow;
+  }
+
+  onClickNewEventButton(){
+    this.NewEventTypeForm = !this.NewEventTypeForm;
+  }
+
+  onclickOneOnOne(){
+    
   }
 
 }

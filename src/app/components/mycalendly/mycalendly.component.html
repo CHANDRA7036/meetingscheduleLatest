@@ -1,0 +1,116 @@
+<div class="mainContainer">
+    <nz-tabset style="margin-top: 20px; position: relative; margin-left: 15%; padding-right: 15%;">
+        <nz-tab nzTitle="Event Types">
+            <div style="text-align: right;">
+                <button nz-button nzType="primary" (click)='onClickNewEventButton()'>+ New Event Type </button>
+            </div>
+        </nz-tab>
+        <nz-tab nzTitle="Schedule Events">
+
+            <nz-tabset>
+                <nz-tab nzTitle="Upcoming">
+                    <div> No Events Yet </div>
+                    <div>
+                        Share Event Type links to schedule events.
+                    </div>
+                </nz-tab>
+                <nz-tab nzTitle="Pending">
+                    <div> No EvenAdd One-on-One Event Type Event name*ts Yet </div>
+                    <div>
+                        Share Event Type links to schedule events.
+                    </div>
+                </nz-tab>
+                <nz-tab nzTitle="Past">
+                    <div> No Events Yet </div>
+                    <div>
+                        Share Event Type links to schedule events.
+                    </div>
+
+                </nz-tab>
+                <nz-tab nzTitle="Date Range">
+                    <nz-range-picker></nz-range-picker>
+                </nz-tab>
+            </nz-tabset>
+        </nz-tab>
+    </nz-tabset>
+</div>Add One-on-One Event Type Event name*
+
+
+
+
+<!-- <div *ngIf="NewEventTypeForm" style="width: 60%; height: 40%;position: relative; left: 20%; top: 60px;">
+    <div style="text-align: center;">
+        <h2>Create New Event Type</h2>
+    </div>
+    <nz-table>
+        <tbody>
+            <tr>
+                <td>
+                    <h3>One-on-One</h3>
+                    <h5>Let an invitee pick a time to meet with you.</h5>
+                </td>
+                <td>
+                    <div style="text-align: right; position: relative;"></div>
+                    <button nz-button nzType="primary">Create</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3> Group</h3>
+                    <h5>Let multiple invitees meet with you at one time.</h5>
+                </td>
+                <td>
+                    <div style="text-align: right; position: relative;"></div><button nz-button nzType="primary">Create</button>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table> -->
+
+
+<div>
+    <div>
+        <h2>Add One-on-One Event Type</h2>
+    </div>
+    <div class="mainContainer" style="position: relative; ">
+
+        <form nz-form style="margin-top: 10%; margin-top: 5%;">
+
+
+            <nz-form-label [nzSpan]="10" nzFor="name">Event name*</nz-form-label>
+            <nz-form-control [nzSpan]="8">
+                <input nz-input text-align: rightname="name" type="name" id="name">
+            </nz-form-control>
+
+
+
+            <nz-form-label [nzSpan]="6">Location</nz-form-label>
+            <nz-form-control [nzSpan]="8">
+                <input nz-input name="Location" type="Location" id="Location">
+            </nz-form-control>
+
+
+            <nz-form-label [nzSpan]="6">Description/Instructions</nz-form-label>
+            <nz-form-control [nzSpan]="8">
+                <input nz-input name="Description" type="Description" id="Description">
+            </nz-form-control>
+
+
+
+            <nz-form-label [nzSpan]="6">Event link * </nz-form-label>
+            <nz-form-control [nzSpan]="8">
+                <input nz-input name="Description" type="Description" id="Description">
+            </nz-form-control>
+
+
+            <div style="text-align: right; position: relative; right: 5%;">
+
+                <nz-button-group>
+                    <button nz-button>cancel</button>
+                    <button nz-button nzType="primary">next</button>
+                </nz-button-group>
+
+            </div>
+
+        </form>
+    </div>
+</div>
