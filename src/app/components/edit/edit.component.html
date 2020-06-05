@@ -1,0 +1,87 @@
+<div>
+    <h2 style="text-align: center; position: relative;">Add Group Event Type</h2>
+</div>
+
+<div style="left: 2%; position: relative; width: 70%;height: 10%;background-color:white; border:1px solid gray; margin-top: 3%;margin-left: 10%;">
+
+
+    <div style="text-align: center;position: relative;width: 70%;height: 10%;border: lightgray;">
+
+        <div style="text-align: center;position: relative;width: 70%;height: 10%;border: lightgray;">
+
+            <h2> What event is this?</h2>
+
+        </div>
+
+    </div>
+</div>
+
+<div>
+    <nz-steps style="left: 12%;position: relative;" nzType="navigation" nzSize="small" [nzCurrent]="index" (nzIndexChange)="onIndexChange($event)">
+        <nz-step (click)='onclickStep1()' nzTitle="Step 1" nzSubtitle="next" nzStatus="finish"> </nz-step>
+        <nz-step (click)='onclickStep2()' nzTitle="Step 2" nzSubtitle="next" nzStatus="process"> </nz-step>
+        <!-- <nz-step nzTitle="Step 3" nzSubtitle="waiting for long long time" nzStatus="wait" nzDescription="This is a description."> </nz-step> -->
+    </nz-steps>
+
+    <div *ngIf="isDetailsFormdisplay1 " style="left: 2%; position: relative; width: 70%;height:80%;background-color:white; border:1px solid gray; margin-top: 3%;margin-left: 10%;">
+        <div style="left:8% ;position: relative;top: 5%;">
+            <nz-form-label [nzSpan]="6">Event Duration * </nz-form-label>
+            <div>
+                <nz-button-group>
+                    <button nz-button nzType="default">15min</button>
+                    <button nz-button nzType="default">30min</button>
+                    <button nz-button nzType="default">45min</button>
+                    <button nz-button nzType="default">60min</button>
+                    <button nz-button nzType="default">-min</button>
+                </nz-button-group>
+            </div>
+            <div>
+                <nz-form-label [nzSpan]="6">Date Range </nz-form-label>
+                <h5>Events can be scheduled over 60 calendar days <a nz-button nzType="link">Edit</a></h5>
+            </div>
+
+            <div>
+                <nz-form-label [nzSpan]="6">Event Time Zone </nz-form-label>
+                <h5>
+                    You're in India Standard Time. Your invitees will see your availability in their local time zone.<a nz-button nzType="link">Edit</a></h5>
+            </div>
+
+            <div>
+                <nz-form-label [nzSpan]="6">Availability</nz-form-label>
+                <h5>
+                    Set your available hours when people can schedule meetings with you.</h5>
+            </div>
+            <!-- <div [ngStyle]="{ width: '600px',height:'200px', border: '1px solid #d9d9d9', borderRadius: '4px'  }">
+            <nz-alert nzMessage="Your selected date: {{ selectedValue | date: 'yyyy-MM-dd' }}"></nz-alert>
+            <nz-calendar [nzFullscreen]="false" (nzSelectChange)="onValueChange($event)" (nzPanelChange)="onPanelChange($event)"></nz-calendar>
+        </div> -->
+
+            <div>
+                <nz-form-label [nzSpan]="6">Secret Event </nz-form-label>
+                <h5>
+                    Hide this event from your main Calendly page?</h5>
+            </div>
+
+
+            <!-- <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider squar"></span>
+          </label> -->
+
+        </div>
+    </div>
+
+
+    <div *ngIf="isDetailsFormdisplay2 " style="left: 2%; position: relative; width: 70%;height: 75%;background-color:white; border:1px solid gray; margin-top: 3%;margin-left: 10%;">
+        <div>
+            <h2 style="text-align: center; position: relative;"></h2>
+        </div>
+
+        <div style="text-align: center;position: relative;width: 70%;height: 10%;border: lightgray;">
+
+
+            <h2 style="text-align: center; position: relative;">When can people book this event?</h2>
+            <h5>30 min, 60 rolling days</h5>
+        </div>
+    </div>
+</div>

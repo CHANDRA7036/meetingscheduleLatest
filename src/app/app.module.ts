@@ -25,6 +25,9 @@ import { MeetinginfoComponent } from './components/meetinginfo/meetinginfo.compo
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MycalendlyComponent } from './components/mycalendly/mycalendly.component';
 import { EventTypeComponent } from './components/event-type/event-type.component';
+import { SoloeventtypeComponent } from './components/soloeventtype/soloeventtype.component';
+import { GrouptypeComponent } from './components/grouptype/grouptype.component';
+import { EditComponent } from './components/edit/edit.component';
 registerLocaleData(en);
 
 @NgModule({
@@ -42,7 +45,10 @@ registerLocaleData(en);
     MeetinginfoComponent,
     PageNotFoundComponent,
     MycalendlyComponent,
-    EventTypeComponent
+    EventTypeComponent,
+    SoloeventtypeComponent,
+    GrouptypeComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

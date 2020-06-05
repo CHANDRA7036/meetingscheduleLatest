@@ -15,8 +15,15 @@ export class EventTypeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // onclickOneOnOne(){
+  onclickOneOnOne(){
+   
+    this.router.navigate(['../event-type/new/soloeventtype']);
 
-  // }
+  }
+
+
+  onclickGroupButton(){
+    this.router.navigate(['../event-type/new/grouptype']);
+  }
 
 }

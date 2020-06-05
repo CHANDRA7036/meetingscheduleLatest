@@ -1,0 +1,61 @@
+<div style="left: 2%; position: relative; width: 80%;height: 94%;background-color:white; border:1px solid gray; margin-top: 3%;margin-left: 10%;">
+
+    <h2 style="text-align: center; position: relative;">Add Group Event Type</h2>
+
+    <div class="mainContainer" style="position: relative; ">
+
+        <form nz-form style="margin-top: 10%; margin-top: 5%; margin-left: 8%;">
+
+            <nz-form-label [nzSpan]="10" nzFor="name">Event name*</nz-form-label>
+            <nz-form-control [nzSpan]="8">
+                <input nz-input text-align: rightname="name" type="name" id="name">
+            </nz-form-control>
+
+            <nz-form-label [nzSpan]="6">Location</nz-form-label>
+            <form>
+                <select id="country" name="country">
+                <option value="au">Australia</option>
+                <option value="ca">Canada</option>
+                <option value="usa">USA</option>
+                </select>
+            </form>
+
+            <nz-form-label [nzSpan]="6">Description/Instructions</nz-form-label>
+            <form>
+                <textarea id="w3review" name="w3review" rows="4" cols="50">
+                </textarea>
+            </form>
+            <nz-form-label [nzSpan]="6">Event link * </nz-form-label>
+            <nz-form-control [nzSpan]="8">
+                <input nz-input name="Eventlink" type="Eventlink" id="Eventlink">
+            </nz-form-control>
+
+            <nz-form-label [nzSpan]="10" nzFor="name">Max invitees in a spot *</nz-form-label>
+            <nz-form-control [nzSpan]="2">
+                <input nz-input text-align: rightname="name" type="name" id="name">
+            </nz-form-control>
+
+            <div>
+                <nz-form-label [nzSpan]="6">Event color*</nz-form-label>
+                <ul class="colors-list js-color-list">
+                    <button nz-button nzType="primary" nzShape="circle" style="background-color: #ee5353" data-color="#ee5353" class="">A</button>
+                    <button nz-button nzType="primary" nzShape="circle" style="background-color: #f778b4" data-color="#f778b4">A</button>
+                    <button nz-button nzType="primary" nzShape="circle" style="background-color: #8989fc" data-color="#8989fc" class="">A</button>
+                    <button nz-button nzType="primary" nzShape="circle" style="background-color: #4a91e9" data-color="#4a91e9" class="">A</button>
+                    <button nz-button nzType="primary" nzShape="circle" style="background-color: #0cc0d7" data-color="#0cc0d7" class="">A</button>
+                    <button nz-button nzType="primary" nzShape="circle" style="background-color: #dfc12d" data-color="#dfc12d" class="current">A</button>
+                    <button nz-button nzType="primary" nzShape="circle" style="background-color: #f49a31" data-color="#f49a31" class="">A</button>
+                    <button nz-button nzType="primary" nzShape="circle" style="background-color: #f778b4" data-color="#f778b4">A</button>
+                </ul>
+            </div>
+
+            <div style="text-align: right; position: relative; right: 15%;">
+                <nz-button-group>
+                    <button nz-button>cancel</button>
+                    <button nz-button nzType="primary" (click)='oclickNextButton()'>next</button>
+                </nz-button-group>
+            </div>
+
+        </form>
+    </div>
+</div>
