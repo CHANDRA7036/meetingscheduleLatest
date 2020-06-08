@@ -21,9 +21,11 @@ export class EventTypeComponent implements OnInit {
 
   }
 
-
   onclickGroupButton(){
     this.router.navigate(['../event-type/new/grouptype']);
+  }
+  onClickBackButton(){
+    this.router.navigate(['']);
   }
 
 }

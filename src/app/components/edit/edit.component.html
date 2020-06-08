@@ -1,30 +1,23 @@
+<!-- <div>
+    <button nz-button nzType="primary" (click)='onClickBackButton'>Back</button>
+</div> -->
 <div>
     <h2 style="text-align: center; position: relative;">Add Group Event Type</h2>
 </div>
 
-<div style="left: 2%; position: relative; width: 70%;height: 10%;background-color:white; border:1px solid gray; margin-top: 3%;margin-left: 10%;">
 
+<button nz-button style="left: 15%;" (click)='onclickStep()' nzType="primary">Back</button>
+<button nz-button style="left: 15%; margin: 5px;" (click)='onclickEventTypes()' nzType="primary">Event Types</button>
 
-    <div style="text-align: center;position: relative;width: 70%;height: 10%;border: lightgray;">
+<div *ngIf="isDetailsFormdisplay1" style="left: 2%; position: relative; width: 70%;height:80%;background-color:white; border:1px solid gray; margin-top: 3%;margin-left: 10%;">
+    <!-- <nz-steps style="left: 8%; position: relative; width: 730px;" nzType="navigation" nzSize="small" [nzCurrent]="index" (nzIndexChange)="onIndexChange($event)">
+        <nz-step (click)='onclickStep()' nzSubtitle="Back" nzStatus="process"></nz-step>
+        <nz-step (click)='onclickStep1()' nzSubtitle="next" nzStatus="finish"></nz-step>
+        <nz-step (click)='onclickStep2()' nzSubtitle="next" nzStatus="process"></nz-step>
+    </nz-steps> -->
 
-        <div style="text-align: center;position: relative;width: 70%;height: 10%;border: lightgray;">
-
-            <h2> What event is this?</h2>
-
-        </div>
-
-    </div>
-</div>
-
-<div>
-    <nz-steps style="left: 12%;position: relative;" nzType="navigation" nzSize="small" [nzCurrent]="index" (nzIndexChange)="onIndexChange($event)">
-        <nz-step (click)='onclickStep1()' nzTitle="Step 1" nzSubtitle="next" nzStatus="finish"> </nz-step>
-        <nz-step (click)='onclickStep2()' nzTitle="Step 2" nzSubtitle="next" nzStatus="process"> </nz-step>
-        <!-- <nz-step nzTitle="Step 3" nzSubtitle="waiting for long long time" nzStatus="wait" nzDescription="This is a description."> </nz-step> -->
-    </nz-steps>
-
-    <div *ngIf="isDetailsFormdisplay1 " style="left: 2%; position: relative; width: 70%;height:80%;background-color:white; border:1px solid gray; margin-top: 3%;margin-left: 10%;">
-        <div style="left:8% ;position: relative;top: 5%;">
+    <div style="top: 5%;position: relative;">
+        <div style="left:8% ;position: relative;top: 5%; top: 5%;">
             <nz-form-label [nzSpan]="6">Event Duration * </nz-form-label>
             <div>
                 <nz-button-group>
@@ -37,13 +30,15 @@
             </div>
             <div>
                 <nz-form-label [nzSpan]="6">Date Range </nz-form-label>
-                <h5>Events can be scheduled over 60 calendar days <a nz-button nzType="link">Edit</a></h5>
+                <h5>Events can be scheduled over 60 calendar days
+                    <a (click)='onclickEdit()' nz-button nzType="link">Edit</a>
+                </h5>
             </div>
 
             <div>
                 <nz-form-label [nzSpan]="6">Event Time Zone </nz-form-label>
                 <h5>
-                    You're in India Standard Time. Your invitees will see your availability in their local time zone.<a nz-button nzType="link">Edit</a></h5>
+                    You're in India Standard Time. Your invitees will see your availability in their local time zone.<a (click)='onclickEditTimeZone()' nz-button nzType="link">Edit</a></h5>
             </div>
 
             <div>
@@ -61,8 +56,6 @@
                 <h5>
                     Hide this event from your main Calendly page?</h5>
             </div>
-
-
             <!-- <label class="switch">
             <input type="checkbox" checked>
             <span class="slider squar"></span>
@@ -71,17 +64,68 @@
         </div>
     </div>
 
+    <!-- date range After clicing edit button. -->
 
-    <div *ngIf="isDetailsFormdisplay2 " style="left: 2%; position: relative; width: 70%;height: 75%;background-color:white; border:1px solid gray; margin-top: 3%;margin-left: 10%;">
-        <div>
-            <h2 style="text-align: center; position: relative;"></h2>
+    <div *ngIf="isEditFormDisplay" style="width: 50%;bottom: 65%;; height: 100px; position: relative;border: red;height: 43%; left: 36%; border: gray solid 1px; background-color: lightgray;">
+        <div style="left: 3%;position: relative;">
+            <div>
+                <h4>Availability</h4>
+            </div>
+
+            <div>
+                <p>When can events be scheduled?</p>
+                <form>
+                    <select id="country" name="country">
+                <option value="au">Over a period of rolling days</option>
+                <option value="ca">Over a date Range</option>
+                <option value="usa">Idefinatley</option>
+                </select>
+                </form>
+            </div><br>
+
+            <div class="textsize">Your invitees will be offered availability for a number of days into the future.</div>
+            <br>
+            <div>
+                <input type="text" name="first" style="width: 50px;">rolling days
+            </div><br>
+            <div>
+                <button nz-button nzType="primary" style="margin: 4px;">Apply</button>
+                <button nz-button nzType="default" (click)='cancelButton()'>cancel</button>
+            </div>
         </div>
+    </div>
 
-        <div style="text-align: center;position: relative;width: 70%;height: 10%;border: lightgray;">
+    <!-- event time zone edit -->
 
+    <div *ngIf="isEditTimeZone" style="width: 35%;height: 35%; bottom: 50%; position: relative;border: red; left: 36%; border: gray solid 1px;background-color: lightgray;">
+        <div style="left: 3%;position: relative;">
+            <div>
+                <h4>Time Zone Style</h4>
+            </div>
 
-            <h2 style="text-align: center; position: relative;">When can people book this event?</h2>
-            <h5>30 min, 60 rolling days</h5>
+            <form>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">local</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">locked</label>
+            </form>
+            <div>
+                <h5>Invitees will see your availability in their time zone. Recommended for virtual meetings.<br> (Your account settings are configured for India Standard Time)</h5>
+            </div>
+
+            <div>
+                <button nz-button nzType="primary" style="margin:4px">Apply</button>
+                <button nz-button nzType="default" (click)='cancelButton()'>cancel</button>
+            </div>
         </div>
+    </div>
+</div>
+
+
+<div *ngIf="isDetailsFormdisplay2 " style="left: 2%; position: relative; width: 70%;height: 20%;background-color:white; border:1px solid gray; margin-top: 3%;margin-left: 10%;">
+
+    <div style="text-align: center;position: relative;">
+        <h2>When can people book this event?</h2>
+        <h5>30 min, 60 rolling days</h5>
     </div>
 </div>

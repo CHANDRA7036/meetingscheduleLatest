@@ -9,6 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class GrouptypeComponent implements OnInit {
 
   current = 1;
+  index=0;
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
@@ -19,6 +20,18 @@ export class GrouptypeComponent implements OnInit {
     this.router.navigate(['event-type/edit']); 
     }
 
+    onclickNextButton3(){
+      this.router.navigate(['event-type/edit']); 
+      }
+
+      onClickBackButton(){
+        this.router.navigate(['event-type/new']);
+      }
+
+      onIndexChange(event: number): void {
+        this.index = event;
+      }
+    
     
 
 }

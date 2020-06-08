@@ -1,10 +1,14 @@
 <div class="mainContainer">
     <nz-tabset style="margin-top: 20px; position: relative; margin-left: 15%; padding-right: 15%;">
+
         <nz-tab nzTitle="Event Types">
+
+            <i nz-icon nzType="search" nzTheme="outline"></i><input type="text" type="default">
             <div style="text-align: right;">
-                <button nz-button nzType="primary" (click)='onClickNewEventButton()'>+ New Event Type </button>
+                <button nz-button nzType="primary" (click)='onClickNewEventButton()'>+ New Event Type </button> <i nz-icon nzType="setting" nzTheme="outline"></i>
             </div>
         </nz-tab>
+
         <nz-tab nzTitle="Schedule Events">
 
             <nz-tabset>

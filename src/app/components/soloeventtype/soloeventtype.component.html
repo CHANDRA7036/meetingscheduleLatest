@@ -1,4 +1,13 @@
 <h2 style="text-align: center; position: relative;">Add Group Event Type</h2>
+
+<div>
+    <nz-steps style="left: 12%; position: relative; right: 12%;" nzType="navigation" nzSize="small" [nzCurrent]="index" (nzIndexChange)="onIndexChange($event)">
+        <nz-step (click)='onClickBackButton()' nzSubtitle="Back" nzStatus="process"></nz-step>
+        <!-- <nz-step (click)='onclickNextButton2()' nzSubtitle="next" nzStatus="process"></nz-step> -->
+        <nz-step (click)='onclickNextButton3()' nzSubtitle="next" nzStatus="finish"></nz-step>
+    </nz-steps>
+</div>
+
 <div style="left: 2%; position: relative; width: 80%;height: 85%;background-color:white; border:1px solid gray; margin-top: 3%;margin-left: 10%;">
 
 
@@ -49,7 +58,7 @@
             <div style="text-align: right; position: relative; right: 15%;">
                 <nz-button-group>
                     <button nz-button>cancel</button>
-                    <button nz-button nzType="primary" (click)='oclickNextButton()'>next</button>
+                    <button nz-button (click)='onclickNextButton3()' nzType="primary">next</button>
                 </nz-button-group>
             </div>
 

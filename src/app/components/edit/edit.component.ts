@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit',
@@ -9,8 +10,10 @@ export class EditComponent implements OnInit {
 
   isDetailsFormdisplay2:boolean=false;
   isDetailsFormdisplay1:boolean=true;
-
-  constructor() { }
+  isEditFormDisplay:boolean=false;
+  isEditTimeZone:boolean=false;
+ 
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -47,7 +50,29 @@ export class EditComponent implements OnInit {
     this.isDetailsFormdisplay1=true;
     // alert("isDetailsFormdisplay1: "+this.isDetailsFormdisplay1+"  isDetailsFormdisplay2:"+this.isDetailsFormdisplay2);
   }
-  
-  
 
+  onclickEdit(){
+    this.isEditFormDisplay=true;
+  }
+
+  onclickEditTimeZone(){
+    this.isEditTimeZone=true;
+  }
+
+  cancelButton(){
+    this.isEditFormDisplay=false;
+     this.isEditTimeZone=false;
+  }
+
+  onclickStep(){
+    this.router.navigate(['../event-type/new/soloeventtype']);
+  }
+
+  onClickBackButton(){
+    this.router.navigate(['event-type/edit']);
+  }
+
+  onclickEventTypes(){
+    this.router.navigate(['']);
+  }
 }
